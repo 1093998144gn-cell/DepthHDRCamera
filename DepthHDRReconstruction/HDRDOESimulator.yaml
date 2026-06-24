@@ -1,0 +1,76 @@
+run:
+  input_path: null
+  depth_path: null
+  input_dir: "E:/item/CODE/NewDOECamera/DepthHDRReconstruction/input_images"
+  output_dir: "E:/item/CODE/NewDOECamera/DepthHDRReconstruction/outputs_sensor"
+  device: "auto"
+  no_noise: false
+  same_sensor_size: false
+  tile_height: 600
+  tile_width: 820
+  synthetic_height: 512
+  synthetic_width: 512
+
+simulator:
+  grid_shape: [2, 2]
+  wavelengths: [4.60e-7, 5.50e-7, 6.40e-7]
+  design_wavelength: 5.461e-7
+  refractive_index: 1.547
+
+  optical_resolution: 1250
+  optical_pitch: 4.0e-6
+  sensor_pixel_pitch: 3.45e-6
+  aperture_fill_ratio: 1.0
+
+  lens_focal_length: 5.00e-2
+  sensor_distance: 5.00e-2
+  auto_focus_sensor_distance: false
+
+  scene_reference_depth: 10000.0
+  depth_range: [1.5, 3.0]
+  num_depth_bins: 5
+  local_psf_size: 65
+
+  branch_power_weights: [1.0, 0.5, 0.25, 0.125]
+  interleave_block_size: 8
+  mask_seed: 13
+  enforce_all_branches_per_block: false
+
+  branch_depth_strengths: [-0.01, -0.003, 0.003, 0.01]
+  fixed_doe_variant: "no_depth"
+  branch_target_offsets:
+    - [-0.60, -0.70]
+    - [-0.60, 0.70]
+    - [0.60, -0.70]
+    - [0.60, 0.70]
+  enable_zero_order_optimization: true
+  zero_order_opt_steps: 250          # was 40
+  zero_order_opt_lr: 8.0e-2
+  zero_order_center_window: 9
+  zero_order_target_window: 11
+  zero_order_center_weight: 20.0     # was 8.0
+  zero_order_target_weight: 0.25
+  zero_order_crosstalk_weight: 6.0   # was 2.5
+  zero_order_wavelength_weights: [1.0, 1.0, 1.0]
+  zero_order_phase_reg_weight: 1.0e-4
+  zero_order_residual_grid: 16
+  zero_order_residual_phase_max: 0.90
+  zero_order_residual_reg_weight: 2.0e-3
+  zero_order_residual_smoothness_weight: 1.0e-3
+
+  add_shot_noise: true
+  clip_sensor: true
+  base_exposure: 2.5
+  full_well_capacity: 12000.0
+  read_noise_std: 2.0
+  dark_current: 0.0
+  sensor_guard_band: 424
+  sensor_guard_band_margin: 4
+
+  use_sensor_response: true
+  sensor_response_path: "E:/item/CODE/NewDOECamera/optics/response420660.pt"
+  save_debug_maps: false
+  export_fabrication_heightmap_png: true
+  fabrication_target_aperture_diameter_mm: 5.0
+  fabrication_pixel_pitch: 4.0e-7
+  doe_substrate_thickness_m: 3.0e-7
