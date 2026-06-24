@@ -1,0 +1,31 @@
+# 配置文件: camera2_0.yaml
+
+#相机类参数
+camera:
+  aperture_label: "radial_symmetry"   #radial_symmetry, full_freedom
+  f: 0.028  # 焦距 (m)
+  focal_distance: 3.0  # 物距 (m) 原本是10000
+  num_depths: 1  # 离散深度层数
+  depth_range: [2.9, 3.1]  # 深度范围 (m)  原本是[1, 5]
+  num_wavelengths: 25  # 离散波长层数
+  wavelengths_range: [ 4.20e-7, 6.60e-7 ]  # 波长范围 (m)
+  N: 256 # 模拟图像大小
+  crop_width: 32  # 裁剪图像大小
+  pitch: 3.0e-6  #采样间距(m) 需要合理设置否则会导致psf欠采样等问题
+  phase_only: True
+  ModulationType: "lens"   # "lens" or "mask"
+  off_axis: False
+
+#camera:
+#  aperture_label: "radial_symmetry"   #radial_symmetry, full_freedom
+#  f: 0.03  # 焦距 (m)
+#  focal_distance: 1.5  # 物距 (m)
+#  num_depths: 1  # 离散深度层数
+#  depth_range: [1, 5]  # 深度范围 (m)
+#  num_wavelengths: 31  # 离散波长层数
+#  wavelengths_range: [ 4.20e-7, 7.20e-7 ]  # 波长范围 (m)
+#  N: 256 # 模拟图像大小
+#  crop_width: 32  # 裁剪图像大小
+#  pitch: 16e-6  #采样间距(m)
+#  phase_only: True
+#  ModulationType: "lens"   # "lens" or "mask"
